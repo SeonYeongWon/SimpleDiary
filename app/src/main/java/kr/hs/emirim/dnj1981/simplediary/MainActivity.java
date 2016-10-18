@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         //현재 날짜 구하기
         Calendar calendar=Calendar.getInstance();
         int nowYear=calendar.get(Calendar.YEAR);
-        int month=calendar.get(Calendar.MONTH)+1;
+        int month=calendar.get(Calendar.MONTH);
         int date=calendar.get(Calendar.DATE);
 
         //DatePicker에 현재 날짜 설정
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     String diaryContents=editDiary.getText().toString();
                     out.write(diaryContents.getBytes());
                     out.close();
-                    Toast.makeText(getApplicationContext(),"저장이 완료됨",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),fileName+"저장이 완료됨",Toast.LENGTH_SHORT).show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             editDiary.setHint("읽어올 일기가 없음");
             butSave.setText("새로 저장");
         }
-        return null;
+        return diaryContents;
     }
 
 }
